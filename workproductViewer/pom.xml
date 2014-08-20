@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.saic.uicds.clients.em</groupId>
+        <artifactId>com.saic.uicds.clients.em</artifactId>
+        <version>1.0</version>
+    </parent>
+    <artifactId>com.saic.uicds.clients.em.workproductViewer</artifactId>
+    <packaging>jar</packaging>
+    <name>UICDS Workproduct Viewer</name>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>create-workproductviewer-jar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <finalName>WorkproductViewer</finalName>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                            <archive>
+                                <manifest>
+                                    <mainClass>com.saic.uicds.clients.em.workproductViewer.WorkproductViewer</mainClass>
+                                </manifest>
+                            </archive>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>com.saic.uicds.clients</groupId>
+            <artifactId>com.saic.uicds.clients.util</artifactId>
+            <version>${clients-util.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.saic.uicds.clients.em</groupId>
+            <artifactId>com.saic.uicds.clients.em.async</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
+</project>
